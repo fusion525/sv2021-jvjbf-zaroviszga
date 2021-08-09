@@ -16,6 +16,6 @@ public class PlayerDTO {
     private String name;
     private LocalDate birthDate;
     private PositionType position;
-    private Team team;
+    //private Team team;
 
 }
