@@ -67,7 +67,7 @@ public class TeamService {
         List<Boolean> playersOnPosition = team.getPlayers().stream().map(p-> p.getPosition().equals(player.getPosition()))
                 .collect(Collectors.toList());
 
-        if (playersOnPosition.size() > 2) {
+        if (playersOnPosition.size() >= 2) {
             throw new IllegalArgumentException("Team already has two players for this position");
         }
 
