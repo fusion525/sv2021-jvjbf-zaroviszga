@@ -30,6 +30,7 @@ public class TeamController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public TeamDTO createNewTeam(@RequestBody @Valid CreateTeamCommand command) {
         return teamService.createNewTeam(command);
     }

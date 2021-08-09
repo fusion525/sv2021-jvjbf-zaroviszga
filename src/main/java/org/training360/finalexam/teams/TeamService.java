@@ -30,11 +30,13 @@ public class TeamService {
     public List<TeamDTO> listAllTeams() {
         Type targetListType = new TypeToken<List<TeamDTO>>(){}.getType();
 
-        return modelMapper.map(teamRepository.findAll(),targetListType);
+        return modelMapper.map(teamRepository.listAllTeams(),targetListType);
     }
 
     public TeamDTO createNewTeam(CreateTeamCommand command) {
         Team newTeam = new Team(command.getName());
+
+        teamRepository.save(newTeam);
 
         return modelMapper.map(newTeam, TeamDTO.class);
     }
