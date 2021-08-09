@@ -21,7 +21,7 @@ public class Player {
     private Long id;
     @Column(name = "player_name")
     private String name;
-    @Column(name = "player_birthday")
+    @Column(name = "player_birthdate")
     private LocalDate birthDate;
     @Column(name = "player_position")
     @Enumerated(value = EnumType.STRING)

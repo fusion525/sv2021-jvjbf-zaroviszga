@@ -67,4 +67,16 @@ public class TeamController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_PROBLEM_JSON)
                 .body(problem);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Problem> handleNotValidRequest(IllegalArgumentException iae) {
+        Problem problem =
+                Problem.builder()
+                        .withType(URI.create("teams/bad-request")).withTitle("Can not create team with given parameters").withStatus(Status.BAD_REQUEST)
+                        .withDetail(iae.getMessage()).build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_PROBLEM_JSON)
+                .body(problem);
+    }
 }
